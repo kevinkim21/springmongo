@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      database: shoppingmall
+      port: 27017
+      host: localhost
+      username: rootuser
+      password: rootpassword
+      uri: mongodb://${spring.data.mongodb.username}:${spring.data.mongodb.password}@localhost:${spring.data.mongodb.port}
