@@ -5,6 +5,7 @@ import com.example.springmongo.service.OrderService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import java.util.*
 
@@ -14,17 +15,17 @@ class OrderRestController(
 ) {
 
     @PostMapping("/orders")
-    fun createOrder(orderRequest: OrderRequest): OrderResponse {
+    fun createOrder(@RequestBody orderRequest: OrderRequest): OrderResponse {
         return orderService.createOrder(orderRequest)
     }
 
     @PostMapping("/payments")
-    fun addPayment(paymentRequest: PaymentRequest): PaymentResponse {
+    fun addPayment(@RequestBody paymentRequest: PaymentRequest): PaymentResponse {
         return orderService.addPayment(paymentRequest)
     }
 
     @PostMapping("/deliveries")
-    fun addDelivery(deliveryRequest: DeliveryRequest): DeliveryResponse {
+    fun addDelivery(@RequestBody deliveryRequest: DeliveryRequest): DeliveryResponse {
         return orderService.addDelivery(deliveryRequest)
     }
 
